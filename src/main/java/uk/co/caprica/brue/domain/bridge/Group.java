@@ -28,7 +28,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Optional;
 import com.google.common.collect.ComparisonChain;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Ordering;
@@ -37,7 +36,7 @@ import com.google.common.collect.Ordering;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public final class Group implements Comparable<Group> {
 
-    private final Optional<String> name;
+    private final String name;
 
     private final String type;
 
@@ -47,10 +46,10 @@ public final class Group implements Comparable<Group> {
 
     @JsonCreator
     public Group(
-        @JsonProperty("name"  ) Optional<String> name  ,
-        @JsonProperty("type"  ) String           type  ,
-        @JsonProperty("lights") List<String>     lights,
-        @JsonProperty("action") GroupAction      action) {
+        @JsonProperty("name"  ) String       name  ,
+        @JsonProperty("type"  ) String       type  ,
+        @JsonProperty("lights") List<String> lights,
+        @JsonProperty("action") GroupAction  action) {
         this.name   = name;
         this.type   = type;
         this.lights = ImmutableList.copyOf(lights);
@@ -70,8 +69,8 @@ public final class Group implements Comparable<Group> {
     @Override
     public int compareTo(Group another) {
         return ComparisonChain.start()
-            .compare(name.get(), another.name.get(), Ordering.natural().nullsLast())
-            .compare(type      , another.type                                      )
+            .compare(name, another.name, Ordering.natural().nullsLast())
+            .compare(type, another.type                                )
             .result();
     }
 }

@@ -25,7 +25,6 @@ import java.util.List;
 import uk.co.caprica.brue.domain.Immutable;
 
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Optional;
 import com.google.common.collect.ImmutableList;
 
 /**
@@ -55,12 +54,12 @@ abstract class AbstractListResult<T> {
     /**
      * Convenience method to get the first result (the most common use-case).
      *
-     * Null checks and optional here are debatable since i always expect one result - it's a bit defensive.
+     * Null checks here are debatable since i always expect one result - it's a bit defensive.
      *
      * @return first result
      */
-    public final Optional<T> first() {
-        return Optional.fromNullable(results.isEmpty() ? null : results.get(0));
+    public final T first() {
+        return results.isEmpty() ? null : results.get(0);
     }
 
     @Override

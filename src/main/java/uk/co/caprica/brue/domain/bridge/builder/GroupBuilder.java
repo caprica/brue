@@ -30,14 +30,13 @@ import uk.co.caprica.brue.domain.Mutable;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Optional;
 
 @Mutable
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public final class GroupBuilder {
 
     @JsonProperty
-    private Optional<String> name;
+    private String name;
 
     @JsonProperty
     private List<String> lights;
@@ -50,7 +49,7 @@ public final class GroupBuilder {
     }
 
     public GroupBuilder name(String name) {
-        this.name = Optional.of(name);
+        this.name = name;
         return this;
     }
 

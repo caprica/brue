@@ -26,7 +26,6 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
-import com.google.common.base.Optional;
 
 @Immutable
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -36,13 +35,13 @@ public final class Condition {
 
     private final String operator;
 
-    private final Optional<String> value;
+    private final String value;
 
     @JsonCreator
     public Condition(
-        @JsonProperty("address" ) String           address ,
-        @JsonProperty("operator") String           operator,
-        @JsonProperty("value"   ) Optional<String> value   ) {
+        @JsonProperty("address" ) String address ,
+        @JsonProperty("operator") String operator,
+        @JsonProperty("value"   ) String value   ) {
         this.address  = address;
         this.operator = operator;
         this.value    = value;
