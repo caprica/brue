@@ -54,12 +54,10 @@ abstract class AbstractListResult<T> {
     /**
      * Convenience method to get the first result (the most common use-case).
      *
-     * Null checks here are debatable since i always expect one result - it's a bit defensive.
-     *
      * @return first result
      */
     public final T first() {
-        return results.isEmpty() ? null : results.get(0);
+        return results.get(0);
     }
 
     @Override
