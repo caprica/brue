@@ -21,7 +21,6 @@
 package uk.co.caprica.brue.domain.bridge.builder;
 
 import uk.co.caprica.brue.domain.Mutable;
-import uk.co.caprica.brue.domain.bridge.Body;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -38,7 +37,7 @@ public final class CommandBuilder {
     private String method;
 
     @JsonProperty
-    private Body body;
+    private Object body;
 
     public static CommandBuilder command() {
         return new CommandBuilder();
@@ -57,7 +56,7 @@ public final class CommandBuilder {
         return this;
     }
 
-    public CommandBuilder body(Body body) {
+    public CommandBuilder body(Object body) {
         this.body = body;
         return this;
     }

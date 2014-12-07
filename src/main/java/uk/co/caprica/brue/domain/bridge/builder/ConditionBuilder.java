@@ -20,11 +20,6 @@
 
 package uk.co.caprica.brue.domain.bridge.builder;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
 import uk.co.caprica.brue.domain.Mutable;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -33,63 +28,45 @@ import com.google.common.base.MoreObjects;
 
 @Mutable
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public final class RuleBuilder {
+public final class ConditionBuilder {
 
     @JsonProperty
-    private String name;
+    private String address;
 
     @JsonProperty
-    private List<ConditionBuilder> conditions;
+    private String operator;
 
     @JsonProperty
-    private List<CommandBuilder> actions;
+    private String value;
 
-    public static RuleBuilder rule() {
-        return new RuleBuilder();
+    public static ConditionBuilder condition() {
+        return new ConditionBuilder();
     }
 
-    private RuleBuilder() {
+    private ConditionBuilder() {
     }
 
-    public RuleBuilder name(String name) {
-        this.name = name;
+    public ConditionBuilder address(String address) {
+        this.address = address;
         return this;
     }
 
-    public RuleBuilder conditions(Collection<ConditionBuilder> conditions) {
-        if (this.conditions == null) {
-            this.conditions = new ArrayList<>(conditions);
-        }
-        else {
-            this.conditions.addAll(conditions);
-        }
+    public ConditionBuilder operator(String operator) {
+        this.operator = operator;
         return this;
     }
 
-    public RuleBuilder conditions(ConditionBuilder... conditions) {
-        return conditions(Arrays.asList(conditions));
-    }
-
-    public RuleBuilder actions(Collection<CommandBuilder> actions) {
-        if (this.actions == null) {
-            this.actions = new ArrayList<>(actions);
-        }
-        else {
-            this.actions.addAll(actions);
-        }
+    public ConditionBuilder value(String value) {
+        this.value = value;
         return this;
-    }
-
-    public RuleBuilder actions(CommandBuilder... actions) {
-        return actions(Arrays.asList(actions));
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-            .add("name"         , name         )
-            .add("conditions"   , conditions   )
-            .add("actions"      , actions      )
+            .add("address" , address )
+            .add("operator", operator)
+            .add("value"   , value   )
             .toString();
     }
 }

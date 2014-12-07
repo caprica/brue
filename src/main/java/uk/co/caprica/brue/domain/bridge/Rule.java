@@ -48,7 +48,7 @@ public final class Rule implements Comparable<Rule> {
 
     private final List<Condition> conditions;
 
-    private final List<RuleAction> actions;
+    private final List<Command> actions;
 
     @JsonCreator
     public Rule(
@@ -58,7 +58,7 @@ public final class Rule implements Comparable<Rule> {
         @JsonProperty("lastTriggered") String           lastTriggered,
         @JsonProperty("status"       ) String           status       ,
         @JsonProperty("conditions"   ) List<Condition>  conditions   ,
-        @JsonProperty("actions"      ) List<RuleAction> actions      ) {
+        @JsonProperty("actions"      ) List<Command>    actions      ) {
         this.name          = name;
         this.owner         = owner;
         this.created       = created;
