@@ -49,6 +49,6 @@ public final class CreateResult extends AbstractListResult<CreateDetail> {
      * @return
      */
     public String id() {
-        return first().get().success().id();
+        return first().success().id();
     }
 }
