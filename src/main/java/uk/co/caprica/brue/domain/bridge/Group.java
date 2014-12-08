@@ -56,6 +56,22 @@ public final class Group implements Comparable<Group> {
         this.action = action;
     }
 
+    public String name() {
+        return name;
+    }
+
+    public String type() {
+        return type;
+    }
+
+    public List<String> lights() {
+        return lights;
+    }
+
+    public GroupAction action() {
+        return action;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

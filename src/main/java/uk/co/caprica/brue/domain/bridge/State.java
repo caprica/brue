@@ -77,6 +77,46 @@ public final class State {
         this.reachable  = reachable;
     }
 
+    public Boolean on() {
+        return on;
+    }
+
+    public Integer brightness() {
+        return brightness;
+    }
+
+    public Integer hue() {
+        return hue;
+    }
+
+    public Integer saturation() {
+        return saturation;
+    }
+
+    public Float[] xy() {
+        return xy != null ? Arrays.copyOf(xy, 2) : null;
+    }
+
+    public Integer ct() {
+        return ct;
+    }
+
+    public String alert() {
+        return alert;
+    }
+
+    public String effect() {
+        return effect;
+    }
+
+    public String colorMode() {
+        return colorMode;
+    }
+
+    public Boolean reachable() {
+        return reachable;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

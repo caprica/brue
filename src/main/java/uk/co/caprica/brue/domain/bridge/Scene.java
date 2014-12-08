@@ -28,6 +28,7 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableList;
 
 @Immutable
 @JsonIgnoreProperties(ignoreUnknown=true)
@@ -45,8 +46,20 @@ public final class Scene {
         @JsonProperty("lights") List<String> lights,
         @JsonProperty("active") Boolean      active) {
         this.name   = name;
-        this.lights = lights;
+        this.lights = ImmutableList.copyOf(lights);
         this.active = active;
+    }
+
+    public String name() {
+        return name;
+    }
+
+    public List<String> lights() {
+        return lights;
+    }
+
+    public Boolean active() {
+        return active;
     }
 
     @Override

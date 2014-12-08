@@ -29,6 +29,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
 
+// FIXME shouldn't this just be Action?
+
 @Immutable
 @JsonIgnoreProperties(ignoreUnknown=true)
 public final class GroupAction {
@@ -67,6 +69,38 @@ public final class GroupAction {
         this.xy         = xy != null ? Arrays.copyOf(xy, 2) : null;
         this.effect     = effect;
         this.colorMode  = colorMode;
+    }
+
+    public Boolean on() {
+        return on;
+    }
+
+    public Integer brightness() {
+        return brightness;
+    }
+
+    public Integer hue() {
+        return hue;
+    }
+
+    public Integer saturation() {
+        return saturation;
+    }
+
+    public Integer ct() {
+        return ct;
+    }
+
+    public Float[] xy() {
+        return xy != null ? Arrays.copyOf(xy, 2) : null;
+    }
+
+    public String effect() {
+        return effect;
+    }
+
+    public String colorMode() {
+        return colorMode;
     }
 
     @Override

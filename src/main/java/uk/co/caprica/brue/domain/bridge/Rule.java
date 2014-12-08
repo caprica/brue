@@ -68,6 +68,34 @@ public final class Rule implements Comparable<Rule> {
         this.actions       = ImmutableList.copyOf(actions);
     }
 
+    public String name() {
+        return name;
+    }
+
+    public String owner() {
+        return owner;
+    }
+
+    public String created() {
+        return created;
+    }
+
+    public String lastTriggered() {
+        return lastTriggered;
+    }
+
+    public String status() {
+        return status;
+    }
+
+    public List<Condition> conditions() {
+        return conditions;
+    }
+
+    public List<Command> actions() {
+        return actions;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)

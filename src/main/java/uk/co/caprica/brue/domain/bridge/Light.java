@@ -61,12 +61,28 @@ public final class Light implements Comparable<Light> {
         this.swVersion = swVersion;
     }
 
+    public State state() {
+        return state;
+    }
+
     public String type() {
         return type;
     }
 
     public String name() {
         return name;
+    }
+
+    public String modelId() {
+        return modelId;
+    }
+
+    public String uniqueId() {
+        return uniqueId;
+    }
+
+    public String swVersion() {
+        return swVersion;
     }
 
     @Override

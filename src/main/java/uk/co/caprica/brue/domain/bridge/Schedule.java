@@ -65,6 +65,33 @@ public final class Schedule implements Comparable<Schedule> {
         this.status      = status;
     }
 
+    public String name() {
+        return name;
+    }
+
+    public String description() {
+        return description;
+    }
+
+    public Command command() {
+        return command;
+    }
+
+    public String localTime() {
+        return localTime;
+    }
+
+    public String time() {
+        return time;
+    }
+
+    public String created() {
+        return created;
+    }
+
+    public String status() {
+        return status;
+    }
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
@@ -82,6 +109,7 @@ public final class Schedule implements Comparable<Schedule> {
     public int compareTo(Schedule another) {
         return ComparisonChain.start()
             .compare(name, another.name, Ordering.natural().nullsLast())
+            .compare(time, another.time, Ordering.natural().nullsLast())
             .result();
     }
 }

@@ -47,6 +47,17 @@ public final class Condition {
         this.value    = value;
     }
 
+    public String address() {
+        return address;
+    }
+
+    public String operator() {
+        return operator;
+    }
+
+    public String value() {
+        return value;
+    }
 
     @Override
     public String toString() {

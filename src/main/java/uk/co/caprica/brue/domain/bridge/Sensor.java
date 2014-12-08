@@ -26,13 +26,15 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
+import com.google.common.collect.ComparisonChain;
+import com.google.common.collect.Ordering;
 
 // FIXME There is a sub-classing going on for sensor...
 // FIXME think there is also state: and config:
 
 @Immutable
 @JsonIgnoreProperties(ignoreUnknown=true)
-public final class Sensor {
+public final class Sensor implements Comparable<Sensor> {
 
     private final String type;
 
@@ -58,6 +60,26 @@ public final class Sensor {
         this.swVersion        = swVersion;
     }
 
+    public String type() {
+        return type;
+    }
+
+    public String name() {
+        return name;
+    }
+
+    public String modelId() {
+        return modelId;
+    }
+
+    public String manufacturerName() {
+        return manufacturerName;
+    }
+
+    public String swVersion() {
+        return swVersion;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
@@ -67,5 +89,14 @@ public final class Sensor {
             .add("manufacturerName", manufacturerName)
             .add("swVersion"       , swVersion       )
             .toString();
+    }
+
+
+    @Override
+    public int compareTo(Sensor another) {
+        return ComparisonChain.start()
+            .compare(name, another.name, Ordering.natural().nullsLast())
+            .compare(type, another.type                                )
+            .result();
     }
 }

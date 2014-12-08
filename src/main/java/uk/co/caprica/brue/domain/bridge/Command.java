@@ -47,6 +47,18 @@ public final class Command {
         this.method  = method;
     }
 
+    public String address() {
+        return address;
+    }
+
+    public Body body() {
+        return body;
+    }
+
+    public String method() {
+        return method;
+    }
+
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
