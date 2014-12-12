@@ -15,6 +15,19 @@ The currently available implementations are:
 Brue can be used in standalone rich-client applications, web applications,
 and Android applications.
 
+Why?
+----
+
+Why make this when there is already a Java API for Hue?
+
+I have certain ideas, concepts, design patterns and principles that I like 
+to employ when I use an API. For example: immutability of domain objects,
+builders for creating mutable objects with state, pluggability of different
+implementations for different platforms (e.g. Desktop vs Android) and so
+on.
+
+Also, it was a pretty interesting exercise to try and make a nicer API. 
+
 Usage
 -----
 
@@ -44,7 +57,7 @@ Light light = bridgeServce.light().light(1);
 To create a group for multiple lights:
 
 ```
-CreateResult createdGroup = groupService.group().create(
+CreateResult createdGroup = bridgeService.group().create(
     group()
         .name("BimbleGroup")
         .lights("1", "2", "3")
