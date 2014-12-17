@@ -36,13 +36,13 @@ abstract class StateBuilder<T extends StateBuilder<T>> {
     @JsonProperty
     private Boolean on;
 
-    @JsonProperty("brightness")
+    @JsonProperty("bri")
     private Integer brightness;
 
     @JsonProperty
     private Integer hue;
 
-    @JsonProperty("saturation")
+    @JsonProperty("sat")
     private Integer saturation;
 
     @JsonProperty
