@@ -20,27 +20,14 @@
 
 package uk.co.caprica.brue.core.domain.bridge.result;
 
+import java.util.Map;
+
 import uk.co.caprica.brue.core.domain.Immutable;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.google.common.base.MoreObjects;
-
 @Immutable
-public final class DeleteDetail {
+public final class SuccessResult extends Result {
 
-    private final String success;
-
-    @JsonCreator
-    public DeleteDetail(
-        @JsonProperty("success") String success) {
-        this.success = success;
-    }
-
-    @Override
-    public String toString() {
-        return MoreObjects.toStringHelper(this)
-            .add("success", success)
-            .toString();
+    public SuccessResult(Map<String,?> result) {
+        super(result);
     }
 }

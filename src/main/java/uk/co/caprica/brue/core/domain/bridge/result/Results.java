@@ -20,34 +20,50 @@
 
 package uk.co.caprica.brue.core.domain.bridge.result;
 
+import java.util.List;
+
 import uk.co.caprica.brue.core.domain.Immutable;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableList;
 
 @Immutable
-public final class ErrorMessage {
+public final class Results {
 
-    private final Integer type;
+    private final List<SuccessResult> successes;
 
-    private final String address;
+    private final List<ErrorResult> errors;
 
-    private final String description;
+    public Results(List<SuccessResult> successes, List<ErrorResult> errors) {
+        this.successes = ImmutableList.copyOf(successes);
+        this.errors = ImmutableList.copyOf(errors);
+    }
 
-    @JsonCreator
-    public ErrorMessage(@JsonProperty("type") Integer type, @JsonProperty("address") String address, @JsonProperty("description") String description) {
-        this.type        = type;
-        this.address     = address;
-        this.description = description;
+    public boolean hasErrors() {
+        return errors.size() > 0;
+    }
+
+    public int successCount() {
+        return successes.size();
+    }
+
+    public int errorCount() {
+        return errors.size();
+    }
+
+    public List<SuccessResult> successes() {
+        return successes;
+    }
+
+    public List<ErrorResult> errors() {
+        return errors;
     }
 
     @Override
     public String toString() {
         return MoreObjects.toStringHelper(this)
-            .add("type"       , type       )
-            .add("address"    , address    )
-            .add("description", description)
+            .add("successes", successes)
+            .add("errors", errors)
             .toString();
     }
 }

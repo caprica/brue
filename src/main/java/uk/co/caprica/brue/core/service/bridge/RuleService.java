@@ -24,8 +24,7 @@ import java.util.Map;
 
 import uk.co.caprica.brue.core.domain.bridge.Rule;
 import uk.co.caprica.brue.core.domain.bridge.builder.RuleBuilder;
-import uk.co.caprica.brue.core.domain.bridge.result.CreateResult;
-import uk.co.caprica.brue.core.domain.bridge.result.UpdateResult;
+import uk.co.caprica.brue.core.domain.bridge.result.Results;
 
 public interface RuleService {
 
@@ -33,9 +32,9 @@ public interface RuleService {
 
     Rule rule(Integer ruleId);
 
-    CreateResult create(RuleBuilder rule);
+    Results create(RuleBuilder rule);
 
     void delete(Integer ruleId);
 
-    UpdateResult update(Integer ruleId, RuleBuilder rule);
+    Results update(Integer ruleId, RuleBuilder rule);
 }

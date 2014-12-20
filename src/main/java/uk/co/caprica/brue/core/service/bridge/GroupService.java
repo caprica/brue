@@ -25,9 +25,7 @@ import java.util.Map;
 import uk.co.caprica.brue.core.domain.bridge.Group;
 import uk.co.caprica.brue.core.domain.bridge.builder.GroupBuilder;
 import uk.co.caprica.brue.core.domain.bridge.builder.GroupStateBuilder;
-import uk.co.caprica.brue.core.domain.bridge.result.CreateResult;
-import uk.co.caprica.brue.core.domain.bridge.result.DeleteResult;
-import uk.co.caprica.brue.core.domain.bridge.result.UpdateResult;
+import uk.co.caprica.brue.core.domain.bridge.result.Results;
 
 public interface GroupService {
 
@@ -35,11 +33,11 @@ public interface GroupService {
 
     Group group(Integer groupId);
 
-    CreateResult create(GroupBuilder group);
+    Results create(GroupBuilder group);
 
-    DeleteResult delete(Integer groupId);
+    Results delete(Integer groupId);
 
-    UpdateResult attributes(Integer groupId, GroupBuilder group);
+    Results attributes(Integer groupId, GroupBuilder group);
 
-    UpdateResult state(Integer groupId, GroupStateBuilder state);
+    Results state(Integer groupId, GroupStateBuilder state);
 }

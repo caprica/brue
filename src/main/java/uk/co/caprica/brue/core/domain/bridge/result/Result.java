@@ -20,21 +20,36 @@
 
 package uk.co.caprica.brue.core.domain.bridge.result;
 
-import java.util.List;
+import static uk.co.caprica.brue.core.util.Cast.cast;
+
+import java.util.Map;
 
 import uk.co.caprica.brue.core.domain.Immutable;
 
-import com.fasterxml.jackson.core.type.TypeReference;
+import com.google.common.base.MoreObjects;
+import com.google.common.collect.ImmutableMap;
 
 @Immutable
-public final class DeleteResult extends AbstractListResult<DeleteDetail> {
+abstract class Result {
 
-    /**
-     *
-     */
-    public static final TypeReference<List<DeleteDetail>> TYPE_REFERENCE = new TypeReference<List<DeleteDetail>>() {};
+    private final Map<String,?> result;
 
-    public DeleteResult(List<DeleteDetail> results) {
-        super(results);
+    public Result(Map<String,?> result) {
+        this.result = ImmutableMap.copyOf(result);
+    }
+
+    public Map<String,?> result() {
+        return result;
+    }
+
+    public <T> T get(String key, Class<T> type) {
+        return cast(result.get(key));
+    }
+
+    @Override
+    public final String toString() {
+        return MoreObjects.toStringHelper(this)
+            .add("result", result)
+            .toString();
     }
 }

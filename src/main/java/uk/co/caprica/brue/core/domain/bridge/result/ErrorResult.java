@@ -20,21 +20,14 @@
 
 package uk.co.caprica.brue.core.domain.bridge.result;
 
-import java.util.List;
+import java.util.Map;
 
 import uk.co.caprica.brue.core.domain.Immutable;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-
 @Immutable
-public final class ErrorResult extends AbstractListResult<ErrorDetail> {
+public final class ErrorResult extends Result {
 
-    /**
-     *
-     */
-    public static final TypeReference<List<ErrorDetail>> TYPE_REFERENCE = new TypeReference<List<ErrorDetail>>() {};
-
-    public ErrorResult(List<ErrorDetail> results) {
-        super(results);
+    public ErrorResult(Map<String,?> result) {
+        super(result);
     }
 }

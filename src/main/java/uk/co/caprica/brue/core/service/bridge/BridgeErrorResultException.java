@@ -21,20 +21,20 @@
 package uk.co.caprica.brue.core.service.bridge;
 
 import uk.co.caprica.brue.core.domain.Immutable;
-import uk.co.caprica.brue.core.domain.bridge.result.ErrorResult;
+import uk.co.caprica.brue.core.domain.bridge.result.Results;
 
 import com.google.common.base.MoreObjects;
 
 @Immutable
 public final class BridgeErrorResultException extends RuntimeException {
 
-    private final ErrorResult result;
+    private final Results result;
 
-    public BridgeErrorResultException(ErrorResult result) {
+    public BridgeErrorResultException(Results result) {
         this.result = result;
     }
 
-    public ErrorResult result() {
+    public Results result() {
         return result;
     }
 

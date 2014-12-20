@@ -24,8 +24,7 @@ import java.util.Map;
 
 import uk.co.caprica.brue.core.domain.bridge.Schedule;
 import uk.co.caprica.brue.core.domain.bridge.builder.ScheduleBuilder;
-import uk.co.caprica.brue.core.domain.bridge.result.CreateResult;
-import uk.co.caprica.brue.core.domain.bridge.result.UpdateResult;
+import uk.co.caprica.brue.core.domain.bridge.result.Results;
 
 public interface ScheduleService {
 
@@ -33,9 +32,9 @@ public interface ScheduleService {
 
     Schedule schedule(Integer scheduleId);
 
-    CreateResult create(ScheduleBuilder schedule);
+    Results create(ScheduleBuilder schedule);
 
     void delete(Integer scheduleId);
 
-    UpdateResult attributes(Integer scheduleId, ScheduleBuilder schedule);
+    Results attributes(Integer scheduleId, ScheduleBuilder schedule);
 }

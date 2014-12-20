@@ -21,9 +21,9 @@
 package uk.co.caprica.brue.core.service.bridge;
 
 import uk.co.caprica.brue.core.domain.bridge.authorisation.Authorisation;
-import uk.co.caprica.brue.core.domain.bridge.result.AuthoriseResult;
+import uk.co.caprica.brue.core.domain.bridge.result.Results;
 
 public interface AuthorisationService {
 
-    AuthoriseResult authorise(Authorisation authorisation);
+    Results authorise(Authorisation authorisation);
 }

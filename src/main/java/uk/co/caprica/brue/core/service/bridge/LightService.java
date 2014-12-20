@@ -25,7 +25,7 @@ import java.util.Map;
 import uk.co.caprica.brue.core.domain.bridge.Light;
 import uk.co.caprica.brue.core.domain.bridge.builder.AttributesBuilder;
 import uk.co.caprica.brue.core.domain.bridge.builder.LightStateBuilder;
-import uk.co.caprica.brue.core.domain.bridge.result.UpdateResult;
+import uk.co.caprica.brue.core.domain.bridge.result.Results;
 
 public interface LightService {
 
@@ -33,7 +33,7 @@ public interface LightService {
 
     Light light(Integer lightId);
 
-    UpdateResult attributes(Integer lightId, AttributesBuilder attributes);
+    Results attributes(Integer lightId, AttributesBuilder attributes);
 
-    UpdateResult state(Integer lightId, LightStateBuilder state);
+    Results state(Integer lightId, LightStateBuilder state);
 }

@@ -22,8 +22,7 @@ package uk.co.caprica.brue.core.service.bridge;
 
 import uk.co.caprica.brue.core.domain.bridge.builder.ConfigBuilder;
 import uk.co.caprica.brue.core.domain.bridge.config.Config;
-import uk.co.caprica.brue.core.domain.bridge.result.DeleteResult;
-import uk.co.caprica.brue.core.domain.bridge.result.UpdateResult;
+import uk.co.caprica.brue.core.domain.bridge.result.Results;
 
 
 //  can automatically push the link button by setting config {"linkbutton": true})
@@ -37,7 +36,7 @@ public interface ConfigService {
 
     Config config();
 
-    UpdateResult update(ConfigBuilder config);
+    Results update(ConfigBuilder config);
 
-    DeleteResult deleteUser(String username);
+    Results deleteUser(String username);
 }
